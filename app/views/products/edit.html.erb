@@ -1,0 +1,28 @@
+<!-- <h1>Products#edit</h1>
+<p>Find me in app/views/products/edit.html.erb</p> -->
+<title>Editing product page</title>
+<title>New Product Page</title>
+<form class="" action="/products/<%= @product.id %>/update" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  Category:
+  <select class="" name="product[category_id]">
+    <option selected disabled>Select Category</option>
+    <% @category.each do |category| %>
+    <option value="<%= category.id %>"><%= category.name %></option>
+    <% end %>
+  </select>
+  <br>
+  Name:
+  <input type="text" name="product[name]" value="">
+  <br>
+  Description:
+  <input type="text" name="product[description]" value="">
+  <br>
+  Pricing:
+  <input type="text" name="product[pricing]" value="">
+  <br>
+  <input type="submit" name="update" value="update">
+</form>
+<a href="/products/<%= @product.id %>/show">Show</a>|
+<a href="/back">Back</a>
